@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">1111</div>
+    <script>
+        // var a = Math.random();
+        // var b = Math.random();
+        // var c = a > b ? a : b;
+        // console.log(c);
+
+        // var today = new Date();   //获取当天日期
+        // var year = today.getFullYear();   //获取当天年份
+        // console.log(year + " " + today);
+        // if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+        //     console.log("是闰年");
+        // else console.log("不是闰年");
+
+        // var num = prompt("请输入年龄", 18);
+        // num *= 1;
+        // if (num < 14) console.log("儿童");
+        // if (14 <= num && num < 24) console.log("青少年");
+        // if (24 <= num && num < 40) console.log("青年");
+        // if (40 <= num && num < 60) console.log("中年");
+        // if (num > 60) console.log("老年");
+        // var num2 = prompt("请输入星期", 0);
+        // num2 *= 1;
+        // if (num2 == 0) console.log("星期日");
+        // if (num2 == 1) console.log("星期一");
+        // if (num2 == 2) console.log("星期二");
+        // if (num2 == 3) console.log("星期三");
+        // if (num2 == 4) console.log("星期四");
+        // if (num2 == 5) console.log("星期五");
+        // if (num2 == 6) console.log("星期六");
+
+        // console.log(f1(10));
+        // var i = 0;
+        // for (var j = 1; j <= 10; j++) {
+        //     i += f1(j);
+        // }
+        // console.log(i);
+        // function f1(a) {
+        //     var s = 1;
+        //     if (a <= 1)
+        //         return s;
+
+        //     else for (var i = 1; i <= a; i++) {
+        //         s = i * s;
+        //     }
+        //     return s;
+        // }
+
+        // var str = "";
+        // for (var i = 1; i <= 5; i++) {
+        //     for (var j = 1; j <= 2 * i - 1; j++) {
+        //         if (j % 2 == 0) str += " ";
+        //         else str += (j + 1) / 2;
+        //     }
+        //     console.log(str);
+        //     str = "";
+        // }
+
+        // var str = "";
+        // var i = 6, j = 6, s;
+        // for (var k = 1; k <= 5; k++) {
+        //     s = i;
+        //     for (var z = 1; z < i; z++)
+        //         str += " ";
+        //     if (k % 2 == 0) {
+        //         for (kk = i; kk <= j; kk++) {
+        //             if (kk % 2 == 1) str += "*";
+        //             else str += " ";
+        //         }
+        //     }
+        //     else
+        //         for (kk = i; kk <= j; kk++) {
+        //             if (kk % 2 == 0) str += "*";
+        //             else str += " ";
+        //         }
+        //     i = s; i--; j++;
+        //     console.log(str);
+        //     str = "";
+        // }
+
+        // for (var i = 100; i <= 999; i++) {
+        //     if (i % 4 == 2 && i % 7 == 3 && i % 9 == 5)
+        //         console.log(i);
+        // }
+        // for (var i = 1000; i <= 9999; i++) {
+        //     if ((i % 13 == 0) && (Math.floor(i / 1000) == Math.floor(i / 100) - Math.floor(i / 1000) * 10 + Math.floor(i / 10) - Math.floor(i / 100) * 10))
+        //         console.log(i);
+        // }
+
+        // var num = prompt("请输入数值", 18);
+        // num *= 1;
+        // console.log(num * num * 4 + 3 * num + 2);
+
+        // var num1 = prompt("请输入x", 18);
+        // num1 *= 1;
+        // var num2 = prompt("请输入y", 18);
+        // num2 *= 1;
+        // console.log(f2(num1, num2));
+        // function f2(x, y) {
+        //     return x > y ? y : x;
+        // }
+        // var k = 0;
+        // var str = "";
+        // for (var i = 1; i <= 1000; i++) {
+        //     if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0) {
+        //         str += i + " ";
+        //         k++;
+        //     }
+        //     if (k == 6) {
+        //         console.log(str);
+        //         str = "";
+        //         k = 0;
+        //     }
+        //     if (k != 6 && i == 1000)
+        //         console.log(str);
+
+        // }
+
+        // var k = 0;
+        // var str = "";
+        // for(var i = 100;i<=1000;i++){
+        //     var S = 0;
+        //     for(var j = 2;j<Math.sqrt(i);j++){
+        //         if(i%j == 0)S = 1;
+        //     }
+        //     if(S == 0){
+        //         str += i + " ";
+        //         k++;
+        //     }
+        //     if (k == 6) {
+        //         console.log(str);
+        //         str = "";
+        //         k = 0;
+        //     }
+        //     if (k != 6 && i == 1000)
+        //         console.log(str);
+
+        // }
+        // console.log(f3(12)-f3(10));
+        // function f3(x){
+        //     var num = 1;
+        //     for( var i = 1;i<=x;i++)
+        //     num*=i;
+        //     return num;
+        // }
+        // f4(4);
+        // function f4(x) {
+        //     var str = "";
+        //     var i = x + 1, j = x + 1, s;
+        //     for (var k = 1; k <= x; k++) {
+        //         s = i;
+        //         for (var z = 1; z < i; z++)
+        //             str += " ";
+        //         if (k % 2 == 0) {
+        //             for (kk = i; kk <= j; kk++) {
+        //                 if (kk % 2 == 1) str += "*";
+        //                 else str += " ";
+        //             }
+        //         }
+        //         else
+        //             for (kk = i; kk <= j; kk++) {
+        //                 if (kk % 2 == 0) str += "*";
+        //                 else str += " ";
+        //             }
+        //         i = s; i--; j++;
+        //         console.log(str);
+        //         str = "";
+        //     }
+        // }
+        // var x = 6;
+        // console.log(f5(x));
+        // console.log(f6(x));
+        // function f5(x) {
+        //     if (x == 1) return 1;
+        //     if (x == 2) return 1;
+        //     if (x >= 3) return f5(x - 1) + f5(x - 2);
+        // }
+
+        // function f6(x) {
+        //     if (x == 1) return 1;
+        //     if (x == 0) return 0;
+        //     var f1 = 1;
+        //     var f2 = 0;
+        //     var fn = 0;
+        //     for (var i = 2; i <= x; i++) {
+        //         fn = f1 + f2;
+        //         f2 = f1;
+        //         f1 = fn;
+        //     }
+        //     return fn;
+        // }
+        // console.log(f7(100) * 4);
+        // console.log(f7(500) * 4);
+        // console.log(f7(1000) * 4);
+        // console.log(f7(10000) * 4);
+        // var str = "";
+        // function f7(n) {
+        //     var num = 0;
+        //     var m = 0;
+        //     for (var i = 1; i <= 2 * n - 1; i += 2) {
+        //         if (m == 0) {
+        //             num += 1 / i;
+        //             m = 1;
+        //         }
+        //         else if (m == 1) {
+        //             num += (-1) / i;
+        //             m = 0;
+        //         }
+        //     }
+        //     return num;
+        // }
+
+        // n = 8;
+        // console.log(f8() + "%");
+        // function f8() {
+
+        //     var s = 0;
+        //     for (var i = 0; i < 100; i++) {
+        //         var n1 = Math.floor(Math.random() * 9 + 1);
+        //         var n2 = Math.floor(Math.random() * 9 + 1);
+        //         var n3 = Math.floor(Math.random() * 9 + 1);
+        //         if (n1 == n || n2 == n || n3 == n)
+        //             s++;
+        //     }
+        //     return s;
+        // }
+        // var aa = new Date();
+        // console.log(Math.floor(Math.random() * 101));
+        // alert("现在是" + aa.getFullYear() + "年" + aa.getMonth() + "月" + aa.getDay() + "日" + aa.getHours() + "时" + aa.getMinutes() + "分" + aa.getSeconds() + "秒" + "星期" + aa.getDay());
+
+        // var ss = "1abc23def4";
+        // console.log(CollectDigits(ss));
+        // function CollectDigits(ss) {
+        //     var str = "";
+        //     var a = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        //     for (var i = 0; i < ss.length; i++) {
+        //         var s = ss.charAt(i);
+        //         for (var j = 0; j < 10; j++) {
+        //             if (s == a[j])
+        //                 str += s;
+        //         }
+        //     }
+        //     return str;
+        // }
+        console.log(Merge("123456789", "abcde"));
+        function Merge(s1, s2) {
+            var str = "";
+            var k = 0;
+            for (var i = 0; i < s1.length; i++) {
+                if (j == s2.length - 1) {
+                    str += s1.slice(i, s1.length);
+                    break;
+                }
+                else str += s1.charAt(i);
+                for (var j = k; j < s2.length; j++) {
+                    if (i == s1.length - 1) {
+                        str += s2.slice(j, s2.length);
+                        break;
+                    }
+                    else {
+                        str += s2.charAt(j);
+                        k = j + 1; break;
+                    }
+                }
+            }
+            return str;
+        }
+        months = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+        console.log(DayOfYear(2000, 2, 8));
+        function DayOfYear(a, b, c) {
+            var sum = 0;
+            if (IsLeapYear(a)) {
+                if (b > 2) {
+                    sum += 31 + 29;
+                    for (var i = 3; i <= b - 1; i++)sum += months[i];
+                    sum += c;
+                }
+                else if (b == 2) sum += 31 + c;
+                else if (b < 2) sum += c;
+
+            }
+            else {
+                if (b > 2) {
+                    sum += 31 + 28;
+                    for (var i = 3; i <= b - 1; i++)sum += months[i];
+                    sum += c;
+                }
+                else if (b == 2) sum += 31 + c;
+                else if (b < 2) sum += c;
+
+            }
+            return sum;
+
+        }
+        function IsLeapYear(a) {
+            if ((a % 400 == 0) || (a % 4 == 0 && ActiveXObject % 100 != 0))
+                return true;
+            else false;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
