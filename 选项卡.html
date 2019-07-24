@@ -52,7 +52,7 @@
             display: none;
         }
 
-        #shishi {
+        .content .hah {
             display: block;
         }
     </style>
@@ -66,25 +66,25 @@
             <li>娱乐</li>
         </ul>
         <div class="content">
-            <div id="shishi" class="ss">时事</div>
-            <div class="ss">体育</div>
-            <div class="ss">娱乐</div>
+            <div class="hah">时事</div>
+            <div>体育</div>
+            <div>娱乐</div>
         </div>
     </div>
     <script>
         var oUl = document.getElementsByClassName("btns");
         var oBtns = document.getElementsByTagName("li");
         var oS = document.getElementsByClassName("content");
-        var oSS = oS.getElementsByClassName("ss");
+        var oSS = oS.getElementsByTagName("div");
         for (var i = 0; i < oBtns.length; i++) {
             oBtns[i].index = i;
             oBtns[i].onclick = function () {
                 for (var i = 0; i < oBtns.length; i++) {
                     oBtns[i].className = "";
-                    oSS[j].style.display = "none";
+                    oSS[i].className = "";
                 }
                 this.className = "active";
-                oSS[this.index].style.display = "block";
+                oSS[this.index].className = "hah";
             }
         }
     </script>
