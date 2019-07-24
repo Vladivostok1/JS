@@ -22,12 +22,12 @@
         }
 
         #img-box {
-            width: 3750px;
+            width: 4500px;
             height: 291px;
             position: absolute;
             top: 0;
             left: 0;
-            transition: left 3s linear;
+            /* transition: left 2s linear; */
         }
 
         #img-box a {
@@ -85,6 +85,7 @@
 </head>
 
 <body>
+    <script src="jslib.js"></script>
     <div id="content">
         <div id="img-box">
             <a href="#"><img src="../img/1.jpg" alt=""></a>
@@ -92,6 +93,7 @@
             <a href="#"><img src="../img/3.jpg" alt=""></a>
             <a href="#"> <img src="../img/4.jpg" alt=""></a>
             <a href="#"> <img src="../img/5.jpg" alt=""></a>
+            <a href="#"><img src="../img/1.jpg" alt=""></a>
         </div>
         <ul class="ccc Index1">
             <li>&lt</li>
@@ -116,9 +118,10 @@
 
         var oIndex2 = oCon.getElementsByClassName("Index2");
         var oLi2 = oIndex2[0].getElementsByTagName("li");
-
+        console.log(oLi2);
+        console.log(oImg);
         var k = 0;
-        for (var i = 0; i < oImg.length; i++) {
+        for (var i = 0; i < oLi2.length; i++) {
             oLi2[i].index = i;
             oLi2[i].onclick = function () {
                 change(this.index);
@@ -129,31 +132,38 @@
 
         oLi1[1].onclick = function () {
             k++;
-            if (k == oImg.length)
-                k = 0;
+            if (k == oImg.length) {
+                oImgBox.style.left = "0px";
+                k = 1;
+            }
             change(k);
         }
         oLi1[0].onclick = function () {
             k--;
-            if (k == -1)
-                k = oImg.length - 1;
+            if (k == -1) {
+                oImgBox.style.left = "-3750px";
+                k = oImg.length-2;
+            }
             change(k);
         }
         function change(index) {
-            for (var j = 0; j < oImg.length; j++) {
+            for (var j = 0; j < oLi2.length; j++) {
                 oLi2[j].className = "";
                 oImg[j].className = "";
             }
-            oLi2[index].className = "Index2-1";
+            oLi2[index == 5 ? 0 : index].className = "Index2-1";
             oImg[index].className = "first";
-            oImgBox.style.left = -index * 750 + "px";
+            // oImgBox.style.left = -index * 750 + "px";
+            animate(oImgBox, {
+                left: -index * 750
+            });
         }
-        var timer = setInterval(oLi1[1].onclick, 3500);
+        var timer = setInterval(oLi1[1].onclick, 2500);
         oCon.onmouseover = function () {
             clearInterval(timer);
         }
-        oCon.onmouseout = function (){
-            timer = setInterval(oLi1[1].onclick, 3500);
+        oCon.onmouseout = function () {
+            timer = setInterval(oLi1[1].onclick, 2500);
         }
 
 

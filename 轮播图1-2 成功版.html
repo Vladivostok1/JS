@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #content {
+            margin-left: 350px;
+            margin-top: 150px;
+            width: 750px;
+            height: 295px;
+            position: relative;
+        }
+
+        #content img {
+            /* margin-left: 350px;
+            margin-top: 150px; */
+            display: none;
+            width: 750px;
+            height: 295px;
+        }
+
+        #content .first {
+            display: block;
+            width: 750px;
+            height: 295px;
+        }
+
+        #content ul li {
+            height: 20px;
+            width: 20px;
+            border: 1px solid #000000;
+            line-height: 20px;
+            text-align: center;
+            margin-right: 10px;
+            background: #898989;
+            color: #f1f1f1;
+            border-radius: 5px;
+            list-style: none;
+        }
+
+        #content .Index1 {
+            position: absolute;
+            top: 260px;
+            left: 20px;
+        }
+
+        #content .Index1 li {
+            float: left;
+        }
+
+        #content .Index2 {
+            position: absolute;
+            top: 260px;
+            right: 20px;
+        }
+
+        #content .Index2 li {
+            float: left;
+        }
+
+        #content .Index2 .Index2-1 {
+            background: #ff0036;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <img class="first" src="../img/1.jpg" alt="">
+        <img src="../img/2.jpg" alt="">
+        <img src="../img/3.jpg" alt="">
+        <img src="../img/4.jpg" alt="">
+        <img src="../img/5.jpg" alt="">
+        <ul class="ccc Index1">
+            <li>&lt</li>
+            <li>&gt</li>
+        </ul>
+        <ul class="ccc Index2">
+            <li class="Index2-1">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+    <script>
+        var oCon = document.getElementById("content");
+        var oImg = oCon.getElementsByTagName("img");
+        var oFirst = oCon.getElementsByClassName("first");
+
+        var oIndex1 = oCon.getElementsByClassName("Index1");
+        var oLi1 = oIndex1[0].getElementsByTagName("li");
+
+        var oIndex2 = oCon.getElementsByClassName("Index2");
+        var oLi2 = oIndex2[0].getElementsByTagName("li");
+
+        var k = 0;
+        for (var i = 0; i < oImg.length; i++) {
+            oLi2[i].index = i;
+            oLi2[i].onclick = function () {
+                for (var j = 0; j < oImg.length; j++) {
+                    oLi2[j].style.background = "#898989";
+                    oImg[j].className = "";
+                }
+                this.style.background = "#ff0036";
+                oImg[this.index].className = "first";
+                k = this.index;
+                console.log(this.index);
+            }
+        }
+        for (var m = 0; m < oLi1.length; m++) {
+            oLi1[m].index = m;
+            oLi1[m].onclick = function () {
+                for (var j = 0; j < oLi2.length; j++) {
+                    oLi2[j].style.background = "#898989";
+                    oImg[j].className = "";
+                }
+                if (this.index == 1) {
+                    if (k < 4) {
+                        oImg[++k].className = "first";
+                        oLi2[k].style.background = "#ff0036";
+                    }
+                    else {
+                        k = 0;
+                        oImg[k].className = "first";
+                        oLi2[k].style.background = "#ff0036";
+                    }
+                }
+                else {
+                    if (k > 0) {
+                        oImg[--k].className = "first";
+                        oLi2[k].style.background = "#ff0036";
+                    }
+                    else {
+                        k = 4;
+                        oImg[k].className = "first";
+                        oLi2[k].style.background = "#ff0036";
+                    }
+                }
+            }
+        }
+        var timer;
+         timer = setInterval(function () {
+            for (var j = 0; j < oLi2.length; j++) {
+                oLi2[j].style.background = "#898989";
+                oImg[j].className = "";
+            }
+            if (k < 4) {
+                oImg[++k].className = "first";
+                oLi2[k].style.background = "#ff0036";
+            }
+            else {
+                k = 0;
+                oImg[k].className = "first";
+                oLi2[k].style.background = "#ff0036";
+            }
+            console.log(k +" 1");
+        }, 1250)
+
+        oCon.onmouseover = function () {
+                clearInterval(timer);
+            }
+        oCon.onmouseout = function () {
+             timer = setInterval(function () {
+                for (var j = 0; j < oLi2.length; j++) {
+                    oLi2[j].style.background = "#898989";
+                    oImg[j].className = "";
+                }
+                if (k < 4) {
+                    oImg[++k].className = "first";
+                    oLi2[k].style.background = "#ff0036";
+                }
+                else {
+                    k = 0;
+                    oImg[k].className = "first";
+                    oLi2[k].style.background = "#ff0036";
+                }
+                console.log(k +" 2");
+            }, 1250)
+        }
+    </script>
+</body>
+
+</html>
