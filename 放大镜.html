@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #small-box,
+        #big-box {
+            width: 400px;
+            height: 400px;
+            float: left;
+            overflow: hidden;
+            position: relative;
+        }
+        #kan {
+            height: 200px;
+            width: 200px;
+            background: rgba(255, 255, 255, 0.6);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #kan,
+        #big-box {
+            display: none;
+        }
+        #big-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div id="small-box">
+            <img src="images/1.jpg" alt="">
+            <span id="kan"></span>
+        </div>
+        <div id="big-box">
+            <img id="big-img" src="images/2.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        var oCon = document.getElementById("content");
+        var oKan = document.getElementById("kan");
+        var oSmall = document.getElementById("small-box");
+        var oBig = document.getElementById("big-box");
+        var oBigImg = document.getElementById("big-img");
+
+        oSmall.onmouseover = function () {
+            oKan.style.display = "block";
+            oBig.style.display = "block";
+        }
+        oSmall.onmousemove = function (e) {
+
+            oKan.style.left = e.clientX - oKan.offsetWidth / 2 + "px";
+            oKan.style.top = e.clientY - oKan.offsetHeight / 2 + "px";
+            if (oKan.offsetLeft < 0) {
+                oKan.style.left = 0 + "px";
+            }
+            if (oKan.offsetLeft >= oSmall.offsetWidth - oKan.offsetWidth) {
+                oKan.style.left = oSmall.offsetWidth - oKan.offsetWidth + "px";
+            }
+            if (oKan.offsetTop < 0) {
+                oKan.style.top = 0 + "px";
+            }
+            if (oKan.offsetTop >= oSmall.offsetHeight - oKan.offsetHeight) {
+                oKan.style.top = oSmall.offsetHeight - oKan.offsetHeight + "px";
+            }
+
+            var sDisX = oSmall.offsetWidth - oKan.offsetWidth;
+            var bDisX = oBigImg.offsetWidth - oBig.offsetWidth;
+            var sDisY = oSmall.offsetHeight - oKan.offsetHeight;
+            var bDisY = oBigImg.offsetHeight - oBig.offsetHeight;
+
+            oBigImg.style.left = -oKan.offsetLeft / sDisX * bDisX + "px";
+            oBigImg.style.top = -oKan.offsetTop / sDisY * bDisY + "px";
+
+        }
+        oSmall.onmouseout = function () {
+            oKan.style.display = "none";
+            oBig.style.display = "none";
+        }
+
+    </script>
+</body>
+
+</html>
