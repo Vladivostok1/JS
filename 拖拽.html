@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            height: 200px;
+            width: 200px;
+            background: #ff0000;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <script>
+        var oDiv = document.getElementById("div1");
+
+        // oDiv.onmouseover = function(){
+        //     oDiv.onmousedown = function(){
+        //         oDiv.onmousemove = function(e){
+        //             oDiv.style.left = e.clientX+"px";
+        //             oDiv.style.top = e.clientY+"px";
+        //         }
+        //     }
+        //     oDiv.onmouseup = function(){
+
+        //     }
+        // }
+        oDiv.onmousedown = function (e) {
+            var x = e.clientX - oDiv.offsetLeft;
+            var y = e.clientY - oDiv.offsetTop;
+
+            document.onmousemove = function (e) {
+                oDiv.style.left = e.clientX - x + "px";
+                oDiv.style.top = e.clientY - y + "px";
+
+                if (oDiv.offsetLeft < 0)
+                    oDiv.style.left = 0;
+                if (oDiv.offsetTop < 0)
+                    oDiv.style.top = 0;
+                var xMax = document.documentElement.clientWidth - oDiv.offsetWidth;
+                if (oDiv.offsetLeft > xMax)
+                    oDiv.style.left = xMax + "px";
+                var yMax = document.documentElement.clientHeight - oDiv.offsetHeight;
+                if (oDiv.offsetTop > yMax)
+                    oDiv.style.top = yMax + "px";
+            }
+
+        }
+        oDiv.onmouseup = function () {
+            // oDiv.onmousemove = "none";
+
+            document.onmousemove = null;
+
+            // oDiv.onmousemove = function () {
+            //     oDiv.style.left = oDiv.offsetLeft;
+            //     oDiv.style.top = oDiv.offsetTop;
+            // }
+        }
+    </script>
+</body>
+
+</html>
