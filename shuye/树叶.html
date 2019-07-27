@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>树叶</title>
+    <style>
+        body {
+            position: absolute;
+        }
+
+        img {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+        function Leaf() {
+            var oImg = new Image();
+            var a = Math.floor(Math.random() * 4 + 1);
+            oImg.src = "imgs/" + a + ".png";
+
+            this.img = oImg;
+            this.size = Math.floor(Math.random() * 50 + 100);
+            this.position = {
+                left: Math.floor(Math.random() * (screenWidth - this.size)),
+                top: 0
+            }
+            this.speed = Math.floor(Math.random() * 5 + 1);
+
+            oImg.style.width = this.size;
+            oImg.style.left = this.position.left + "px";
+            oImg.style.top = this.position.top + "px";
+        }
+
+        Leaf.prototype.drop = function () {
+            var s = this;
+            s.timer = setInterval(function () {
+                if (s.img.offsetTop >= screenHeight - s.img.offsetHeight) {
+                    clearInterval(s.timer);
+                }
+                else s.img.style.top = s.img.offsetTop + s.speed + "px";
+            }, 10);
+        }
+
+        var num = Math.floor(Math.random() * 4 + 4);
+        console.log(screenWidth);
+        console.log(screenHeight);
+        var lf = new Array(num);
+        for (var i = 0; i < num; i++) {
+            lf[i] = new Leaf();
+            lf[i].dFlag = false;
+            document.body.appendChild(lf[i].img);
+        }
+        document.onclick = function () {
+            for (var i = 0; i < num; i++) {
+                if(lf[i].dFlag == false){
+                    lf[i].drop();
+                    lf[i].dFlag = true;    
+                }                 
+            }
+        }
+    </script>
+</body>
+
+</html>

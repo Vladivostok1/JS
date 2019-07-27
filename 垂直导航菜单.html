@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            background: #000000;
+            color: #fff;
+            font-size: 20px;
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-bottom: 1px solid red;
+            position: relative;
+        }
+
+        #div2 {
+            background: #000000;
+            color: #fff;
+            font-size: 20px;
+            width: 200px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+            top: 30px;
+        }
+
+        #oUL ,#oUL2{
+            background: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">管理区
+        <ul id="oUL"></ul>
+    </div>
+    <div id="div2">交流区
+        <ul id="oUL2"></ul>
+    </div>
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        var oDiv2 = document.getElementById("div2");
+        var oUL = document.getElementById("oUL");
+        var oUL2 = document.getElementById("oUL2");
+        var k1 = 0;
+        var k2 = 0;
+        var oLi1 = document.createElement("li");
+        var oLi2 = document.createElement("li");
+        var oLi3 = document.createElement("li");
+        oDiv1.onclick = function () {
+            if (k1 == 0) {
+                oLi1.innerHTML = "1111";
+                oLi2.innerHTML = "2222";
+                oLi3.innerHTML = "3333";
+                oLi1.style.height = "30px";
+                oLi2.style.height = "30px";
+                oLi3.style.height = "30px";
+                oUL.appendChild(oLi1);
+                oUL.appendChild(oLi2);
+                oUL.appendChild(oLi3);
+                oDiv2.style.top = "120px";
+                k1 = 1;
+            }
+            else {
+                oUL.removeChild(oLi1);
+                oUL.removeChild(oLi2);
+                oUL.removeChild(oLi3);
+                k1 = 0;
+                oDiv2.style.top = "30px";
+            }
+        }
+        oDiv2.onclick = function () {
+            if (k2 == 0) {
+                oLi1.innerHTML = "1111";
+                oLi2.innerHTML = "2222";
+                oLi3.innerHTML = "3333";
+                oLi1.style.height = "30px";
+                oLi2.style.height = "30px";
+                oLi3.style.height = "30px";
+                oUL2.appendChild(oLi1);
+                oUL2.appendChild(oLi2);
+                oUL2.appendChild(oLi3);
+                k2 = 1;
+            }
+            else {
+                oUL2.removeChild(oLi1);
+                oUL2.removeChild(oLi2);
+                oUL2.removeChild(oLi3);
+                k2 = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>
